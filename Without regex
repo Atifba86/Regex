@@ -1,0 +1,42 @@
+function isValidDateFormat(dateString) {
+  // Split the date string into components
+  var dateComponents = dateString.split('-');
+
+  // Check if there are three components (day, month, year)
+  if (dateComponents.length !== 3) {
+    return false;
+  }
+
+  // Extract day, month, and year
+  var day = parseInt(dateComponents[0], 10);
+  var monthAbbreviation = dateComponents[1];
+  var year = parseInt(dateComponents[2], 10);
+
+  // Check if day is a valid number between 1 and 31
+  if (isNaN(day) || day < 1 || day > 31) {
+    return false;
+  }
+
+  // Check if monthAbbreviation is a valid three-letter month abbreviation
+  var validMonthAbbreviations = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  if (!validMonthAbbreviations.includes(monthAbbreviation)) {
+    return false;
+  }
+
+  // Check if year is a valid four-digit number
+  if (isNaN(year) || year.toString().length !== 4) {
+    return false;
+  }
+
+  // If all checks pass, the date format is valid
+  return true;
+}
+
+// Example usage
+var userInput = '20-NOV-2023';
+
+if (isValidDateFormat(userInput)) {
+  console.log('Valid date format!');
+} else {
+  console.log('Invalid date format!');
+}
