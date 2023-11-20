@@ -1,0 +1,16 @@
+function isValidDateFormat(dateString) {
+  // Define a regular expression for 'DD-MON-YYYY' format
+  var regex = /^(0[1-9]|[1-2][0-9]|3[0-1])-(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-\d{4}$/;
+
+  // Test the input string against the regular expression
+  return regex.test(dateString);
+}
+
+// Example usage
+var userInput = '20-NOV-2023';
+
+if (isValidDateFormat(userInput)) {
+  console.log('Valid date format!');
+} else {
+  console.log('Invalid date format!');
+}
